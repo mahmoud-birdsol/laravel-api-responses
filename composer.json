@@ -1,0 +1,49 @@
+{
+    "name": "mahmoud-birdsol/api-responses",
+    "description": "A responsable set of classes for resource api request",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mahmoud Elmokhtar",
+            "email": "mahmoud@birdsol.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "laravel/framework": "~5.5.0|~5.6.0|~5.7.0",
+        "spatie/laravel-fractal": "^5.4"
+    },
+    "require-dev": {
+        "orchestra/testbench": "~3.5.0|~3.6.0|~3.7.0",
+        "phpunit/phpunit": "^6.2|^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alacrity\\Responses\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Alacrity\\Responses\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Alacrity\\Reviews\\ReviewsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
