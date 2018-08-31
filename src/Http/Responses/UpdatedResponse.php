@@ -6,7 +6,7 @@ use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Database\Eloquent\Model;
 use League\Fractal\TransformerAbstract;
 
-class ShowResponse implements Responsable
+class UpdatedResponse implements Responsable
 {
     /**
      * The model to be transformed.
@@ -30,7 +30,6 @@ class ShowResponse implements Responsable
      */
     public function __construct(Model $model, TransformerAbstract $transformer)
     {
-
         $this->model = $model;
         $this->transformer = $transformer;
     }
@@ -45,7 +44,7 @@ class ShowResponse implements Responsable
     {
         return fractal($this->model)
             ->transformWith($this->transformer)
-            ->respond(200, [], JSON_PRETTY_PRINT);
+            ->respond(202, [], JSON_PRETTY_PRINT);
 
     }
 }

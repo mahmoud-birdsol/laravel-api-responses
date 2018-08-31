@@ -2,8 +2,11 @@
 
 namespace Alacrity\Responses\Tests;
 
+use Alacrity\Responses\Http\Responses\CreatedResponse;
+use Alacrity\Responses\Http\Responses\DeletedResponse;
 use Alacrity\Responses\Http\Responses\IndexResponse;
 use Alacrity\Responses\Http\Responses\ShowResponse;
+use Alacrity\Responses\Http\Responses\UpdatedResponse;
 use Alacrity\Responses\Tests\Feature\ShowResponseTest;
 use Alacrity\Responses\Tests\Models\User;
 use Alacrity\Responses\Tests\Transformers\UserTransformer;
@@ -110,6 +113,18 @@ abstract class TestCase extends Orchestra
 
         Route::get('/api/user/{id}', function ($id) {
             return new ShowResponse(User::find($id), new UserTransformer());
+        });
+
+        Route::post('/api/user', function (\Illuminate\Http\Request $request) {
+            return new CreatedResponse();
+        });
+
+        Route::delete('/api/user/{id}', function () {
+            return new DeletedResponse();
+        });
+
+        Route::patch('/api/user/{id}', function (\Illuminate\Http\Request $request, $id) {
+            return new UpdatedResponse(User::find($id), new UserTransformer());
         });
     }
 }

@@ -1,2 +1,20 @@
-#Alacrity
+#Api Responses
 
+This package is a wrapper for helper default api responses used across a rest api service .
+
+- Index Response
+- Show Response
+
+
+- Updated Response
+- Deleted Response
+- Created Response
+
+
+### Installation
+
+### Usage
+
+### Liscense
+
+ 
