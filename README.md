@@ -12,6 +12,9 @@ This package is a wrapper for helper default api responses used across a rest ap
 
 
 ### Installation
+```$xslt
+composer install mahmoud-birdsol/api-responses
+```
 
 ### Usage
 
