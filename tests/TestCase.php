@@ -3,6 +3,8 @@
 namespace Alacrity\Responses\Tests;
 
 use Alacrity\Responses\Http\Responses\IndexResponse;
+use Alacrity\Responses\Http\Responses\ShowResponse;
+use Alacrity\Responses\Tests\Feature\ShowResponseTest;
 use Alacrity\Responses\Tests\Models\User;
 use Alacrity\Responses\Tests\Transformers\UserTransformer;
 use Homicity\Reviews\Test\Traits\Authentication;
@@ -104,6 +106,10 @@ abstract class TestCase extends Orchestra
     {
         Route::get('/api/user', function () {
             return new IndexResponse(User::query(), new UserTransformer());
+        });
+
+        Route::get('/api/user/{id}', function ($id) {
+            return new ShowResponse(User::find($id), new UserTransformer());
         });
     }
 }
