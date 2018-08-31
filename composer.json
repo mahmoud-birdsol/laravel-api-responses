@@ -40,7 +40,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Alacrity\\Reviews\\ReviewsServiceProvider"
+                "Alacrity\\Responses\\ResponsesServiceProvider"
             ]
         }
     },
