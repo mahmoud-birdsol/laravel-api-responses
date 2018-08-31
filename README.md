@@ -13,7 +13,7 @@ This package is a response helper classes for laravel api developers to use with
 
 ### Installation
 ```$xslt
-composer install mahmoud-birdsol/api-responses
+composer require mahmoud-birdsol/api-responses
 ```
 **Config**
 Paginator adapter can be configured, as well as the paginate request key.
