@@ -46,7 +46,7 @@ abstract class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-
+            'Alacrity\Responses\Providers\ResponseServiceProvider',
         ];
     }
 

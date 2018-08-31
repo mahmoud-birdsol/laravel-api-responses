@@ -1,0 +1,5 @@
+The index response is a general / global index response class that will perform numerous actions.
+ ✔ Get a transformed listing of the resource @done (18-08-30 21:31)
+ ✔ Get a transformed paginated listing of the resource @done (18-08-30 22:23)
+ ☐ Get a transformed filtered listing of the resource
+ ☐ Get a transformed sorted listing of the resource
