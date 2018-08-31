@@ -1,4 +1,4 @@
-##Api Responses
+# Api Responses
 
 This package is a response helper classes for laravel api developers to use with transformers the package we use for transformers is [spatie/laravel-fractal](https://github.com/spatie/laravel-fractal) you will find some helper classes in this package for all rest api end points but the try value is in the Index response.
 
