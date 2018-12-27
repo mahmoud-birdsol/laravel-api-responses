@@ -30,6 +30,7 @@ class IndexResponse implements Responsable
 	 * Index response constructor.
 	 *
 	 * @param Builder
+     * @param TransformerAbstract
 	 */
 	public function __construct(Builder $builder, TransformerAbstract $transformer)
 	{

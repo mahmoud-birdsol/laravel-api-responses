@@ -2,6 +2,7 @@
 
 namespace Alacrity\Responses\Providers;
 
+use Alacrity\Responses\Respond;
 use Illuminate\Support\ServiceProvider;
 
 class ResponseServiceProvider extends ServiceProvider
@@ -22,6 +23,10 @@ class ResponseServiceProvider extends ServiceProvider
     	if ($this->app->runningInConsole()) {
             $this->offerPublishing();
         }
+
+        $this->app->bind('respond', function ($app) {
+            return new Respond();
+        });
     }
 
      /**
@@ -30,7 +35,7 @@ class ResponseServiceProvider extends ServiceProvider
     protected function offerPublishing()
     {
         $this->publishes([
-            __DIR__ . '/../config/resource.php' => config_path('resource.php'),
-        ], 'resource');
+            __DIR__ . '/../config/response.php' => config_path('response.php'),
+        ], 'response');
     }
 }

@@ -2,9 +2,7 @@
 
 namespace Alacrity\Responses\Http\Responses;
 
-use Illuminate\Contracts\Support\Responsable;
-
-class CreatedResponse implements Responsable
+class CreatedResponse extends ApiResponse
 {
     /**
      * Create an HTTP response that represents the object.
@@ -14,6 +12,22 @@ class CreatedResponse implements Responsable
      */
     public function toResponse($request)
     {
+        if($this->wantsModel()){
+            return $this->responseWithModel(201);
+        }
+
         return response()->json(['message' => 'success'], 201);
+    }
+
+    /**
+     * Return a response with model.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    private function responseWithModel($statusCode = 200): \Illuminate\Http\JsonResponse
+    {
+        return fractal($this->model)
+            ->transformWith($this->transformer)
+            ->respond($statusCode, [], JSON_PRETTY_PRINT);
     }
 }
