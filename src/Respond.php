@@ -2,14 +2,14 @@
 
 namespace Alacrity\Responses;
 
-use Alacrity\Responses\Http\Responses\CreatedResponse;
-use Alacrity\Responses\Http\Responses\DeletedResponse;
-use Alacrity\Responses\Http\Responses\IndexResponse;
-use Alacrity\Responses\Http\Responses\ShowResponse;
-use Alacrity\Responses\Http\Responses\UpdatedResponse;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use League\Fractal\TransformerAbstract;
+use Illuminate\Database\Eloquent\Builder;
+use Alacrity\Responses\Http\Responses\ShowResponse;
+use Alacrity\Responses\Http\Responses\IndexResponse;
+use Alacrity\Responses\Http\Responses\CreatedResponse;
+use Alacrity\Responses\Http\Responses\DeletedResponse;
+use Alacrity\Responses\Http\Responses\UpdatedResponse;
 
 class Respond
 {

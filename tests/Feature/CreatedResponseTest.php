@@ -2,8 +2,8 @@
 
 namespace Alacrity\Responses\Tests\Feature;
 
-use Alacrity\Responses\Tests\Models\User;
 use Alacrity\Responses\Tests\TestCase;
+use Alacrity\Responses\Tests\Models\User;
 
 class CreatedResponseTest extends TestCase
 {

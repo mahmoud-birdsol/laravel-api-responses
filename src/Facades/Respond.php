@@ -5,9 +5,8 @@ namespace Alacrity\Responses\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class Respond
+ * Class Respond.
  *
- * @package Alacrity\Responses\Facades
  * @see Alacrity\Responses\Respond
  */
 class Respond extends Facade
@@ -17,5 +16,8 @@ class Respond extends Facade
      *
      * @return string
      */
-    protected static function getFacadeAccessor() { return 'respond'; }
+    protected static function getFacadeAccessor()
+    {
+        return 'respond';
+    }
 }

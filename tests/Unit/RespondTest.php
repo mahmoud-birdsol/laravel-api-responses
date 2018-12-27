@@ -2,14 +2,14 @@
 
 namespace Alacrity\Responses\Tests\Unit;
 
+use Alacrity\Responses\Respond;
+use Alacrity\Responses\Tests\TestCase;
+use Alacrity\Responses\Tests\Models\User;
+use Alacrity\Responses\Http\Responses\ShowResponse;
+use Alacrity\Responses\Http\Responses\IndexResponse;
 use Alacrity\Responses\Http\Responses\CreatedResponse;
 use Alacrity\Responses\Http\Responses\DeletedResponse;
-use Alacrity\Responses\Http\Responses\IndexResponse;
-use Alacrity\Responses\Http\Responses\ShowResponse;
 use Alacrity\Responses\Http\Responses\UpdatedResponse;
-use Alacrity\Responses\Respond;
-use Alacrity\Responses\Tests\Models\User;
-use Alacrity\Responses\Tests\TestCase;
 use Alacrity\Responses\Tests\Transformers\UserTransformer;
 
 class RespondTest extends TestCase
