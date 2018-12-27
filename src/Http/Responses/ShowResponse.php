@@ -30,7 +30,6 @@ class ShowResponse implements Responsable
      */
     public function __construct(Model $model, TransformerAbstract $transformer)
     {
-
         $this->model = $model;
         $this->transformer = $transformer;
     }
@@ -46,6 +45,5 @@ class ShowResponse implements Responsable
         return fractal($this->model)
             ->transformWith($this->transformer)
             ->respond(200, [], JSON_PRETTY_PRINT);
-
     }
 }

@@ -14,4 +14,14 @@ class CreatedResponseTest extends TestCase
 
         $this->json('POST', '/api/user', $data)->assertStatus(201);
     }
+
+    /** @test */
+    public function it_returns_the_Created_user_with_response()
+    {
+        $data = factory(User::class)->raw();
+
+        $this->json('POST', '/api/user-with-model', $data)
+             ->assertStatus(201)
+             ->assertJson(['data' => $data]);
+    }
 }

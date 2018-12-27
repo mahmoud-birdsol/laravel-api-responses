@@ -6,34 +6,8 @@ use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Database\Eloquent\Model;
 use League\Fractal\TransformerAbstract;
 
-class UpdatedResponse implements Responsable
+class UpdatedResponse extends ApiResponse
 {
-    /**
-     * The model to be transformed.
-     *
-     * @var Model
-     */
-    private $model;
-
-    /**
-     * The specified model transformer.
-     *
-     * @var TransformerAbstract
-     */
-    private $transformer;
-
-    /**
-     * ShowResponse constructor.
-     *
-     * @param Model               $model
-     * @param TransformerAbstract $transformer
-     */
-    public function __construct(Model $model, TransformerAbstract $transformer)
-    {
-        $this->model = $model;
-        $this->transformer = $transformer;
-    }
-
     /**
      * Create an HTTP response that represents the object.
      *
@@ -42,9 +16,22 @@ class UpdatedResponse implements Responsable
      */
     public function toResponse($request)
     {
+        if($this->wantsModel()){
+            return $this->responseWithModel(202);
+        }
+
+        return response()->json(['message' => 'success'], 202);
+    }
+
+    /**
+     * Return a response with model.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    private function responseWithModel($statusCode = 200): \Illuminate\Http\JsonResponse
+    {
         return fractal($this->model)
             ->transformWith($this->transformer)
-            ->respond(202, [], JSON_PRETTY_PRINT);
-
+            ->respond($statusCode, [], JSON_PRETTY_PRINT);
     }
 }

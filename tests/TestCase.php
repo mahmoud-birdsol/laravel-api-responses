@@ -2,16 +2,14 @@
 
 namespace Alacrity\Responses\Tests;
 
+use Alacrity\Responses\Facades\Respond;
 use Alacrity\Responses\Http\Responses\CreatedResponse;
 use Alacrity\Responses\Http\Responses\DeletedResponse;
 use Alacrity\Responses\Http\Responses\IndexResponse;
 use Alacrity\Responses\Http\Responses\ShowResponse;
 use Alacrity\Responses\Http\Responses\UpdatedResponse;
-use Alacrity\Responses\Tests\Feature\ShowResponseTest;
 use Alacrity\Responses\Tests\Models\User;
 use Alacrity\Responses\Tests\Transformers\UserTransformer;
-use Homicity\Reviews\Test\Traits\Authentication;
-use Homicity\Reviews\Test\Traits\ReviewsRepository;
 use Illuminate\Support\Facades\Route;
 use Orchestra\Testbench\TestCase as Orchestra;
 
@@ -115,16 +113,33 @@ abstract class TestCase extends Orchestra
             return new ShowResponse(User::find($id), new UserTransformer());
         });
 
-        Route::post('/api/user', function (\Illuminate\Http\Request $request) {
-            return new CreatedResponse();
-        });
-
         Route::delete('/api/user/{id}', function () {
             return new DeletedResponse();
         });
 
+        // Without model responses.
+        Route::post('/api/user', function (\Illuminate\Http\Request $request) {
+            return new CreatedResponse();
+        });
+
         Route::patch('/api/user/{id}', function (\Illuminate\Http\Request $request, $id) {
-            return new UpdatedResponse(User::find($id), new UserTransformer());
+            return new UpdatedResponse();
+        });
+
+        // With model responses.
+        Route::post('/api/user-with-model', function (\Illuminate\Http\Request $request) {
+            $user = User::create($request->only(['name', 'email', 'password']));
+
+            // Example using the helper method
+            return respond()->with($user, new UserTransformer())->created();
+        });
+
+        Route::patch('/api/user-with-model/{id}', function (\Illuminate\Http\Request $request, $id) {
+            $user = User::find($id);
+            $user->update($request->only(['name']));
+
+            // Example using the facade.
+            return Respond::with($user, new UserTransformer())->updated();
         });
     }
 }
