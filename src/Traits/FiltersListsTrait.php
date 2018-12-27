@@ -50,7 +50,7 @@ trait FiltersListsTrait
      */
     private function parseFilterNameToMethod($filter)
     {
-        return 'scope' . ucfirst($filter);
+        return 'scope'.ucfirst($filter);
     }
 
     /**
@@ -89,6 +89,6 @@ trait FiltersListsTrait
      */
     private function filterValueExists($value)
     {
-        return !empty($value);
+        return ! empty($value);
     }
 }

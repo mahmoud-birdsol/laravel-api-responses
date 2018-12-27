@@ -12,7 +12,7 @@ class CreatedResponse extends ApiResponse
      */
     public function toResponse($request)
     {
-        if($this->wantsModel()){
+        if ($this->wantsModel()) {
             return $this->responseWithModel(201);
         }
 

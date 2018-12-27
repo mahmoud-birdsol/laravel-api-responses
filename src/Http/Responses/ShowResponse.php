@@ -2,9 +2,9 @@
 
 namespace Alacrity\Responses\Http\Responses;
 
-use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Database\Eloquent\Model;
 use League\Fractal\TransformerAbstract;
+use Illuminate\Contracts\Support\Responsable;
 
 class ShowResponse implements Responsable
 {

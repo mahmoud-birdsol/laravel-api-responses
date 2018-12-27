@@ -2,9 +2,9 @@
 
 namespace Alacrity\Responses\Http\Responses;
 
-use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Database\Eloquent\Model;
 use League\Fractal\TransformerAbstract;
+use Illuminate\Contracts\Support\Responsable;
 
 abstract class ApiResponse implements Responsable
 {
@@ -30,7 +30,7 @@ abstract class ApiResponse implements Responsable
      */
     public function __construct(Model $model = null, TransformerAbstract $transformer = null)
     {
-        if(!is_null($model) && !is_null($transformer)){
+        if (! is_null($model) && ! is_null($transformer)) {
             $this->model = $model;
             $this->transformer = $transformer;
         }
