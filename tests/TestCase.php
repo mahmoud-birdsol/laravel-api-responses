@@ -2,16 +2,16 @@
 
 namespace Alacrity\Responses\Tests;
 
+use Illuminate\Support\Facades\Route;
 use Alacrity\Responses\Facades\Respond;
+use Alacrity\Responses\Tests\Models\User;
+use Orchestra\Testbench\TestCase as Orchestra;
+use Alacrity\Responses\Http\Responses\ShowResponse;
+use Alacrity\Responses\Http\Responses\IndexResponse;
 use Alacrity\Responses\Http\Responses\CreatedResponse;
 use Alacrity\Responses\Http\Responses\DeletedResponse;
-use Alacrity\Responses\Http\Responses\IndexResponse;
-use Alacrity\Responses\Http\Responses\ShowResponse;
 use Alacrity\Responses\Http\Responses\UpdatedResponse;
-use Alacrity\Responses\Tests\Models\User;
 use Alacrity\Responses\Tests\Transformers\UserTransformer;
-use Illuminate\Support\Facades\Route;
-use Orchestra\Testbench\TestCase as Orchestra;
 
 abstract class TestCase extends Orchestra
 {
@@ -25,7 +25,7 @@ abstract class TestCase extends Orchestra
         parent::setUp();
 
         $this->loadLaravelMigrations(['--database' => 'testbench']);
-        $this->withFactories(__DIR__ . '/database/factories');
+        $this->withFactories(__DIR__.'/database/factories');
 
         $this->registerTestingRoutes();
     }
@@ -75,7 +75,7 @@ abstract class TestCase extends Orchestra
     }
 
     /**
-     * Override this method to set configuration values in your test class
+     * Override this method to set configuration values in your test class.
      *
      * @return array of config keys (in dot-notation) and values
      */
@@ -87,7 +87,7 @@ abstract class TestCase extends Orchestra
     }
 
     /**
-     * Run the migrations registered in the app
+     * Run the migrations registered in the app.
      */
     protected function loadRegisteredMigrations()
     {

@@ -2,9 +2,7 @@
 
 namespace Alacrity\Responses\Http\Responses;
 
-use Illuminate\Contracts\Support\Responsable;
 use Illuminate\Database\Eloquent\Model;
-use League\Fractal\TransformerAbstract;
 
 class UpdatedResponse extends ApiResponse
 {
@@ -16,7 +14,7 @@ class UpdatedResponse extends ApiResponse
      */
     public function toResponse($request)
     {
-        if($this->wantsModel()){
+        if ($this->wantsModel()) {
             return $this->responseWithModel(202);
         }
 
