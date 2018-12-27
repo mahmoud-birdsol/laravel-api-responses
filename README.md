@@ -1,4 +1,5 @@
-# Api Responses [![Build Status](https://travis-ci.org/mahmoud-birdsol/laravel-api-responses.svg?branch=master)](https://travis-ci.org/mahmoud-birdsol/laravel-api-responses)
+# Api Responses 
+[![Build Status](https://travis-ci.org/mahmoud-birdsol/laravel-api-responses.svg?branch=master)](https://travis-ci.org/mahmoud-birdsol/laravel-api-responses) ![StyleCI](https://github.styleci.io/repos/146941362/shield?branch=master)
 
 This package is a response helper classes for laravel api developers to use with transformers the package we use for transformers is [spatie/laravel-fractal](https://github.com/spatie/laravel-fractal) you will find some helper classes in this package for all rest api end points but the try value is in the Index response.
 
