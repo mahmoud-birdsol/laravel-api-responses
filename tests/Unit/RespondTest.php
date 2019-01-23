@@ -37,6 +37,17 @@ class RespondTest extends TestCase
     }
 
     /** @test */
+    public function it_returns_a_show_response_with_model_from_method()
+    {
+        $respond = new Respond();
+
+        $model = factory(User::class)->create();
+        $transformer = new UserTransformer();
+
+        $this->assertInstanceOf(ShowResponse::class, $respond->show($model, $transformer));
+    }
+
+    /** @test */
     public function it_returns_a_created_response_with_model()
     {
         $respond = new Respond();

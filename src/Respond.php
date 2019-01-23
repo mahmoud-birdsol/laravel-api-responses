@@ -57,30 +57,42 @@ class Respond
     /**
      * Return a show response.
      *
+     * @param null $model
+     * @param null $transformer
      * @return ShowResponse
      */
-    public function show()
+    public function show($model = null, $transformer = null)
     {
+        $this->setModelAndTransformer($model, $transformer);
+
         return new ShowResponse($this->model, $this->transformer);
     }
 
     /**
      * Return a created response.
      *
+     * @param null $model
+     * @param null $transformer
      * @return CreatedResponse
      */
-    public function created()
+    public function created($model = null, $transformer = null)
     {
+        $this->setModelAndTransformer($model, $transformer);
+
         return new CreatedResponse($this->model, $this->transformer);
     }
 
     /**
      * Return an updated response.
      *
+     * @param null $model
+     * @param null $transformer
      * @return UpdatedResponse
      */
-    public function updated()
+    public function updated($model = null, $transformer = null)
     {
+        $this->setModelAndTransformer($model, $transformer);
+
         return new UpdatedResponse($this->model, $this->transformer);
     }
 
@@ -92,5 +104,19 @@ class Respond
     public function deleted()
     {
         return new DeletedResponse();
+    }
+
+    /**
+     * Set the response model and transformer
+     *
+     * @param Model|null $model
+     * @param TransformerAbstract|null $transformer
+     */
+    private function setModelAndTransformer($model = null, $transformer = null)
+    {
+        if (!is_null($model) && !is_null($transformer)) {
+            $this->model = $model;
+            $this->transformer = $transformer;
+        }
     }
 }

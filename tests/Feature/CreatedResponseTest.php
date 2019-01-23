@@ -16,7 +16,7 @@ class CreatedResponseTest extends TestCase
     }
 
     /** @test */
-    public function it_returns_the_Created_user_with_response()
+    public function it_returns_the_created_user_with_response()
     {
         $data = factory(User::class)->raw();
 
