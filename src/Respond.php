@@ -107,7 +107,7 @@ class Respond
     }
 
     /**
-     * Set the response model and transformer
+     * Set the response model and transformer.
      *
      * @param Model|null $model
      * @param TransformerAbstract|null $transformer
