@@ -35,7 +35,7 @@ class ResponseServiceProvider extends ServiceProvider
     protected function offerPublishing()
     {
         $this->publishes([
-            __DIR__.'/../config/response.php' => config_path('response.php'),
+            __DIR__.'/../../config/response.php' => config_path('response.php'),
         ], 'response');
     }
 }

@@ -20,6 +20,10 @@ composer require mahmoud-birdsol/api-responses
 Paginator adapter can be configured, as well as the paginate request key.
 
 ```$xslt
+ php artisan vendor:publish --provider="Alacrity\Responses\Providers\ResponseServiceProvider"
+```
+
+```$xslt
 /**
  * Pagination config variables.
  */
