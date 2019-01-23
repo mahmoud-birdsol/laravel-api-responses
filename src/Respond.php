@@ -107,14 +107,14 @@ class Respond
     }
 
     /**
-     * Set the response model and transformer
+     * Set the response model and transformer.
      *
      * @param Model|null $model
      * @param TransformerAbstract|null $transformer
      */
     private function setModelAndTransformer($model = null, $transformer = null)
     {
-        if (!is_null($model) && !is_null($transformer)) {
+        if (! is_null($model) && ! is_null($transformer)) {
             $this->model = $model;
             $this->transformer = $transformer;
         }
