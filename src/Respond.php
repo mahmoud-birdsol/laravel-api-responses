@@ -114,7 +114,7 @@ class Respond
      */
     private function setModelAndTransformer($model = null, $transformer = null)
     {
-        if (!is_null($model) && !is_null($transformer)) {
+        if (! is_null($model) && ! is_null($transformer)) {
             $this->model = $model;
             $this->transformer = $transformer;
         }
